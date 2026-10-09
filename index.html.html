@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff2f7">
+<title>One Last Hangout Before Georgia 🇬🇪</title>
+<style>
+:root{--pink:#ff76a7;--hot:#ff4f91;--ink:#342832;--muted:#76636e;--soft:#fff1f7;--lav:#f1edff}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 0%,#ffd8e7,transparent 34%),linear-gradient(155deg,#fffafd,#f5f0ff)}
+.wrap{max-width:520px;min-height:100vh;margin:auto;padding:22px 16px;display:flex;align-items:center}
+.card{width:100%;background:#ffffffdf;border:1px solid #ffffff;border-radius:28px;padding:26px 21px;text-align:center;box-shadow:0 20px 60px #d98bab2b;backdrop-filter:blur(10px)}
+.tag{display:inline-block;padding:8px 12px;border-radius:999px;background:#ffe3ee;color:#a83265;font-weight:800;font-size:11px;letter-spacing:1.3px;text-transform:uppercase}
+.emoji{font-size:60px;margin:19px 0 10px}
+h1{font-size:clamp(29px,8vw,39px);line-height:1.1;letter-spacing:-1px;margin:8px 0 13px}
+p{font-size:16px;line-height:1.6;color:var(--muted);margin:0 auto 16px;max-width:400px}
+.buttons{display:flex;flex-direction:column;gap:10px;max-width:350px;margin:20px auto 0}
+button{border:0;border-radius:15px;padding:15px 16px;font-size:15px;font-weight:750;cursor:pointer}
+.primary{background:linear-gradient(135deg,var(--pink),var(--hot));color:white;box-shadow:0 8px 20px #ff76a733}
+.secondary{background:var(--soft);color:#a83265}
+.tertiary{background:var(--lav);color:#6954a0}
+.hide{display:none}
+.agenda{margin:18px 0;padding:14px 15px;background:#fff8fb;border:1px solid #ffe1ed;border-radius:18px;text-align:left}
+.item{display:flex;gap:12px;padding:9px 0}
+.icon{font-size:23px;width:29px;flex-shrink:0}
+.item strong{display:block;margin-bottom:3px}
+.item span{font-size:14px;color:var(--muted);line-height:1.45}
+input{width:100%;padding:13px;border:1px solid #f0cedd;border-radius:12px;font:inherit;margin:5px 0 12px;background:white}
+label{display:block;text-align:left;font-size:13px;font-weight:750;margin-top:8px}
+.note{font-size:12px!important;color:#9b8290!important}
+footer{margin-top:22px;font-size:11px;color:#b29aa7}
+</style>
+</head>
+<body>
+<main class="wrap"><section class="card">
+<div id="home">
+ <div class="tag">FRIENDSHIP PLANS ✌️</div>
+ <div class="emoji">🍿🧋</div>
+ <h1>Before you head<br>back to Georgia 🇬🇪</h1>
+ <p>Oyeee, we need to make one proper plan before you leave 😭</p>
+ <p>Movie, food, random bakwaas and a few good memories. Bas friends wala scene — no boring plans allowed 😂</p>
+ <div class="buttons">
+  <button class="primary" onclick="show('plan')">Okay, what's the plan? 👀</button>
+  <button class="secondary" onclick="show('details')">Convince me properly 😂</button>
+  <button class="tertiary" onclick="show('later')">Let me think 🙈</button>
+ </div>
+</div>
+<div id="plan" class="hide">
+ <div class="tag">THE FRIENDS' ITINERARY</div>
+ <div class="emoji">🎬🍟</div>
+ <h1>Simple plan. Good vibes.</h1>
+ <p>Nothing fancy — just a fun day out before you fly back.</p>
+ <div class="agenda">
+  <div class="item"><div class="icon">🎥</div><div><strong>1. Movie</strong><span>You choose the movie, or I'll choose something we can roast afterwards.</span></div></div>
+  <div class="item"><div class="icon">🍕</div><div><strong>2. Food & bakwaas</strong><span>Grab something to eat, walk around, and talk nonsense like professionals.</span></div></div>
+  <div class="item"><div class="icon">🏡</div><div><strong>3. Optional chill scene</strong><span>If we both feel like it, we can hang out at my flat, listen to music or watch something. Totally optional — we can just finish after the movie or food too.</span></div></div>
+ </div>
+ <p class="note">Your plan, your comfort. We can change anything or skip anything. 🤝</p>
+ <div class="buttons">
+  <button class="primary" onclick="show('details')">Okay, let's plan it 😎</button>
+  <button class="tertiary" onclick="show('home')">Back</button>
+ </div>
+</div>
+<div id="details" class="hide">
+ <div class="tag">YOUR TURN ✨</div>
+ <div class="emoji">🗓️🍿</div>
+ <h1>Help plan our hangout</h1>
+ <p>Tell me what works for you and we'll sort it out.</p>
+ <label for="movie">Movie vibe</label>
+ <input id="movie" placeholder="Comedy, thriller, anything…">
+ <label for="when">When are you free?</label>
+ <input id="when" placeholder="Day / time">
+ <label for="food">Food choice</label>
+ <input id="food" placeholder="Pizza, café, street food…">
+ <div class="buttons">
+  <button class="primary" onclick="makePlan()">Make the plan ✌️</button>
+  <button class="tertiary" onclick="show('plan')">Back to itinerary</button>
+ </div>
+ <p id="result" class="note"></p>
+</div>
+<div id="later" class="hide">
+ <div class="tag">NO PRESSURE 😌</div>
+ <div class="emoji">🫡</div>
+ <h1>All good, yaar!</h1>
+ <p>Think about it. If you're free and feel like going, we'll make a plan. If not, no stress — have a safe trip back to Georgia! 🇬🇪</p>
+ <div class="buttons"><button class="primary" onclick="show('plan')">Okay, show me the plan</button><button class="tertiary" onclick="show('home')">Back</button></div>
+</div>
+<footer>Just friends, good food & good memories ✌️</footer>
+</section></main>
+<script>
+function show(id){['home','plan','details','later'].forEach(x=>document.getElementById(x).classList.toggle('hide',x!==id));}
+function makePlan(){const movie=document.getElementById('movie').value.trim()||'whatever looks good';const when=document.getElementById('when').value.trim()||'when we are both free';const food=document.getElementById('food').value.trim()||'decide together';document.getElementById('result').textContent=`Movie: ${movie} · When: ${when} · Food: ${food}. Now just agree on a time 😎`;}
+</script>
+</body></html>
